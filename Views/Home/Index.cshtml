@@ -1,0 +1,26 @@
+﻿@model IEnumerable<EstChe.Models.Item>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h3>Est Che Shop</h3>
+    <table>
+        <tr class="header">
+            <td><p>Item Name</p></td>
+            <td><p>Price</p></td>
+            <td><p>Category</p></td>
+            <td></td>
+        </tr>
+        @foreach (EstChe.Models.Item b in Model)
+        {
+    <tr>
+        <td><p>@b.Name</p></td>
+        <td><p>@b.Price</p></td>
+        <td><p>@b.Category.CategoryName</p></td>
+        <td><p>@b.Descr</p></td>
+
+        <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+    </tr>
+        }
+    </table>
+</div>
