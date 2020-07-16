@@ -12,6 +12,9 @@
 //        protected override void Seed(ItemContext db)
 //        {
 //            db.Items.Add(new Item { Name = "Coffee", Category = Categories["Food"], Descr = "tasty", Price = 3 });
+//            db.Items.Add(new Item { Name = "pc", Category = Categories["Tech"], Descr = "usefull", Price = 5000 });
+//            db.Items.Add(new Item { Name = "sql", Category = Categories["Another"], Descr = "uuf too much pein", Price = 200 });
+//            db.Items.Add(new Item { Name = "smh", Category = Categories["404"], Descr = "hzzz", Price = 3 });
 //            db.SaveChanges();
 //        }
 
@@ -25,8 +28,10 @@
 //                {
 //                    var list = new Category[]
 //                    {
-//                       new Category{CategoryName="Electrocars"},
-//                       new Category {CategoryName="Classic cars"}
+//                       new Category{CategoryName="Food"},
+//                       new Category {CategoryName="Tech"},
+//                       new Category {CategoryName="Another"},
+//                       new Category {CategoryName="404"}
 //                    };
 
 //                    category = new Dictionary<string, Category>();

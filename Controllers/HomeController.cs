@@ -40,7 +40,7 @@ namespace EstChe.Controllers
         //[CustAuthorize(false)]
         public ActionResult Index ()
         {
-            return View();
+            return View(db.Items);
         }
 
 
