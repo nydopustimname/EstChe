@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<EstChe.Models.Item>
+@model IEnumerable<EstChe.Models.ItemViewModel>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,21 +7,33 @@
     <h3>Est Che Shop</h3>
     <table>
         <tr class="header">
-            <td><p>Item Name</p></td>
-            <td><p>Price</p></td>
-            <td><p>Category</p></td>
-            <td></td>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
         </tr>
-        @foreach (EstChe.Models.Item b in Model)
+        @foreach (var item in Model)
         {
-    <tr>
-        <td><p>@b.Name</p></td>
-        <td><p>@b.Price</p></td>
-        <td><p>@b.Category.CategoryName</p></td>
-        <td><p>@b.Descr</p></td>
-
-        <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
-    </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.ActionLink("Order", "MakeOrder", new { id = item.Id })
+                </td>
+            </tr>
         }
     </table>
 </div>

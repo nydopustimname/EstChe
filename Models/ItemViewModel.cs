@@ -1,17 +1,16 @@
-﻿using EstChe.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace EstChe.Models
 {
-    public class Item /*: IAllItems*/
+  public  class ItemViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Price { get; set; }
         public string Descr { get; set; }
-        public Category Category { get; set; }
+        public decimal Price { get; set; }
     }
 }

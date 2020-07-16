@@ -1,9 +1,9 @@
+using BLL.Infrastructure;
 using EstChe.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+using EstChe.Util;
+using Ninject;
+using Ninject.Modules;
+using Ninject.Web.Mvc;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -18,7 +18,12 @@ namespace EstChe
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ItemContext>());
+
+            NinjectModule orderModule = new OrderModule();
+            NinjectModule serviceModule = new ServiceModule("DefaultConnection");
+            var kernel = new StandardKernel(orderModule, serviceModule);
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            //  Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ItemContext>());
         }
     }
 }
