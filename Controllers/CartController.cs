@@ -16,10 +16,10 @@ namespace EstChe.Controllers
             repository = cr;
         }
 
-        public RedirectToRouteResult AddToCart (int itemId, string returnUrl)
-        {
-            //
-        }
+        //public RedirectToRouteResult AddToCart (int itemId, string returnUrl)
+        //{
+            
+        //}
 
         // GET: Cart
         public ActionResult Index()

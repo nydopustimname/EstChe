@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using DAL.Repositories;
 
 namespace BLL.Services
 {
     public class UserService : IUserService
     {
-        IUnitOfWorkIdentity DB { get; set; }
+        UnitOfWork DB { get; set; }
 
-        public UserService (IUnitOfWorkIdentity unitOfWork)
+        public UserService (UnitOfWork unitOfWork)
         {
             DB = unitOfWork;
         }

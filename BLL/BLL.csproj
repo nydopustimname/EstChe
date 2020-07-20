@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessModels\Discount.cs" />
+    <Compile Include="DTO\CartLineDTO.cs" />
     <Compile Include="DTO\ItemDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />

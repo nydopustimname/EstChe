@@ -13,7 +13,7 @@ namespace BLL.Infrastructure
         }
         public override void Load()
         {
-            Bind<IUnitOfWork>().To<ContextUnitOfWork>().WithConstructorArgument(connectionString);
+            Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(connectionString);
         }
     }
 }
