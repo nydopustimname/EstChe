@@ -40,7 +40,7 @@ namespace EstChe.Controllers
            // return View(db.Items);
         }
 
-
+        [CustAuthorize(true)]
         public ActionResult MakeOrder(int? id)
         {
             try
@@ -62,8 +62,10 @@ namespace EstChe.Controllers
             //return View(orderModel);
         }
         [HttpPost]
+       [CustAuthorize(true)]
         public ActionResult MakeOrder(OrderViewModel orderModel)
         {
+           
             try
             {
                 var orderDTO = new OrderDTO { Id = orderModel.ItemId, Address = orderModel.Address, PhoneNumber = orderModel.PhoneNumber };

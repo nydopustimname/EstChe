@@ -22,9 +22,20 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Информация", "About", "Home")</li>
-                    <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
-                </ul>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Войти", "Login", "Account")</li>
+                            <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a>Привет, @User.Identity.Name</a>
+                            </li>
+                            <li>@Html.ActionLink("Выход", "LogOut", "Account")</li>
+                        }
+
+                    </ul>
             </div>
         </div>
     </div>
