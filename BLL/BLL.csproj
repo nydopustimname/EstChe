@@ -109,10 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessModels\Discount.cs" />
-    <Compile Include="DTO\CartLineDTO.cs" />
-    <Compile Include="DTO\ItemDTO.cs" />
-    <Compile Include="DTO\OrderDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Infrastructure\OperationInfo.cs" />
     <Compile Include="Infrastructure\ServiceModule.cs" />
     <Compile Include="Infrastructure\ValidationException.cs" />
@@ -133,6 +129,10 @@
     <ProjectReference Include="..\..\DAL\DAL.csproj">
       <Project>{f9a25273-cd00-42c8-9255-7776b18277db}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{29ef457b-ae85-4507-bea2-de369b9df394}</Project>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

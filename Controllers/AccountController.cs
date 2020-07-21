@@ -1,4 +1,4 @@
-﻿using BLL.DTO;
+﻿using Common.DTO;
 using BLL.Infrastructure;
 using BLL.Interfaces;
 using EstChe.Filters;

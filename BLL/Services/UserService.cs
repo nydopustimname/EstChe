@@ -1,8 +1,9 @@
-﻿using BLL.DTO;
+﻿
 using BLL.Infrastructure;
 using BLL.Interfaces;
-using DAL.Entities;
-using DAL.Interfaces;
+using Common.Entities;
+using Common.DTO;
+
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 using System.Collections.Generic;

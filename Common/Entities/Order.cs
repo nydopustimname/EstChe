@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace BLL.DTO
+namespace Common.Entities
 {
-    public class OrderDTO
+    public class Order
     {
         public int Id { get; set; }
         public decimal Sum { get; set; }
@@ -14,5 +13,7 @@ namespace BLL.DTO
         public string Address { get; set; }
         public DateTime Date { get; set; }
 
+        public int ItemId { get; set; }
+        public Item Item { get; set; }
     }
 }

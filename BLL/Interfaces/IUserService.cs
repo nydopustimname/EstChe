@@ -1,4 +1,5 @@
-﻿using BLL.DTO;
+﻿using Common.DTO;
+
 using BLL.Infrastructure;
 using System;
 using System.Collections.Generic;

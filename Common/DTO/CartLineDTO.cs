@@ -1,11 +1,11 @@
-﻿using EstChe.Models;
+﻿using Common.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.DTO
+namespace Common.DTO
 {
     public  class CartLineDTO
     {

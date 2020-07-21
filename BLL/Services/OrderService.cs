@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
-using BLL.DTO;
+using Common.DTO;
 using BLL.Infrastructure;
 using BLL.Interfaces;
 using DAL.Interfaces;
-using EstChe.Models;
+using Common.Entities;
+
 using System;
 using System.Collections.Generic;
 

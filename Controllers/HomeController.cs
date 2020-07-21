@@ -6,8 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BLL.Interfaces;
-using BLL.DTO;
 using EstChe.Models;
+using Common.DTO;
 using AutoMapper;
 using BLL.Infrastructure;
 
