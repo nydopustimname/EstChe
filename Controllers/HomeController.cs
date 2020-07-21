@@ -10,6 +10,7 @@ using EstChe.Models;
 using Common.DTO;
 using AutoMapper;
 using BLL.Infrastructure;
+using System.Web.Services.Description;
 
 namespace EstChe.Controllers
 {
@@ -34,10 +35,12 @@ namespace EstChe.Controllers
         public ActionResult Index ()
         {
             IEnumerable<ItemDTO> itemDTOs = orderService.GetItems();
+            if (itemDTOs.Count()==0)
+                throw new Exception ();
             var mapper = new MapperConfiguration(cf => cf.CreateMap<ItemDTO, ItemViewModel>()).CreateMapper();
             var items = mapper.Map<IEnumerable<ItemDTO>, List<ItemViewModel>>(itemDTOs);
             return View(items);
-           // return View(db.Items);
+            //return View(db.Items);
         }
 
         [CustAuthorize(true)]

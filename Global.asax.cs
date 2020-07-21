@@ -20,7 +20,7 @@ namespace EstChe
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             NinjectModule orderModule = new OrderModule();
-            NinjectModule serviceModule = new ServiceModule("DefaultConnection");
+            NinjectModule serviceModule = new ServiceModule("ApContext");
             var kernel = new StandardKernel(orderModule, serviceModule);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
             //  Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ItemContext>());

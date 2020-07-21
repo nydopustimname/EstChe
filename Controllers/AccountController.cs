@@ -38,16 +38,18 @@ namespace EstChe.Controllers
             return View();
         }
 
-
-        public ActionResult Login()
+        [Authorize]
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.returlUrl = returnUrl;
             return View();
         }
 
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task< ActionResult> Login(LoginModel loginModel)
+        public async Task< ActionResult> Login(LoginModel loginModel, string returnUrl)
         {
             await SetinitialDataAsync();
             if (ModelState.IsValid)
