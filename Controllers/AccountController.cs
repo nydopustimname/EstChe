@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using NPOI.SS.Formula.Functions;
 
 namespace EstChe.Controllers
 {
@@ -39,16 +40,17 @@ namespace EstChe.Controllers
         }
 
         [Authorize]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login(LoginModel loginModel)
         {
-            ViewBag.returlUrl = returnUrl;
-            return View();
+           // ViewBag.returlUrl = returnUrl;
+            return View(loginModel);
         }
 
 
         [HttpPost]
+    
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task< ActionResult> Login(LoginModel loginModel, string returnUrl)
         {
             await SetinitialDataAsync();
