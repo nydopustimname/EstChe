@@ -1,6 +1,5 @@
 ﻿using BLL.Interfaces;
-using DAL.Identity;
-using EstChe.Models;
+using DAL.Repositories;
 using System;
 using System.Threading.Tasks;
 
@@ -12,6 +11,7 @@ namespace DAL.Interfaces
         IOrderRepository Orders { get; }
         IClientManager ClientManager { get; }
         AppRoleManager RoleManager { get; }
+       // AppUserManager UserManager { get; }
        // IUserManager UserManager { get; }
         Task SaveAsync();
 
