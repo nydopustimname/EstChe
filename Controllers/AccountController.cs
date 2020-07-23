@@ -1,8 +1,7 @@
 ﻿using Common.DTO;
 using BLL.Infrastructure;
 using BLL.Interfaces;
-using EstChe.Filters;
-using EstChe.Models;
+
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -14,8 +13,9 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
-using NPOI.SS.Formula.Functions;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Common.Entities;
+using EstChe.Models;
 
 namespace EstChe.Controllers
 {
@@ -34,12 +34,17 @@ namespace EstChe.Controllers
 
 
         // GET: Account
-        public ActionResult Index()
+        public string Index()
         {
-            return View();
+            string result = "Вы не авторизованы";
+            if (User.Identity.IsAuthenticated)
+            {
+                result = "Ваш логин: " + User.Identity.Name;
+            }
+            return result;
         }
 
-        [Authorize]
+        //  [Authorize]
         public ActionResult Login(LoginModel loginModel)
         {
            // ViewBag.returlUrl = returnUrl;
@@ -50,7 +55,7 @@ namespace EstChe.Controllers
         [HttpPost]
     
         [AllowAnonymous]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task< ActionResult> Login(LoginModel loginModel, string returnUrl)
         {
             await SetinitialDataAsync();
@@ -79,37 +84,21 @@ namespace EstChe.Controllers
                 }
             }
             return View(loginModel);
-            //if (Membership.ValidateUser(username, password))
-            //{
-            //    FormsAuthentication.SetAuthCookie(username, false);
-            //    //return RedirectToAction("Index", "Admin");
-            //    return Redirect(returnUrl ?? Url.Action("Index", "Admin"));
-            //}
-            //else
-            //{
-            //    ModelState.AddModelError("", "Некорректное имя пользователя или пароль");
-            //    return View();
-            //}
         }
         public ActionResult LogOut()
         {
-            //AuthenticationManager.SignOut();
-            //HttpContext.User = new GenericPrincipal(new GenericIdentity(string.Empty), null);
-
-            ////AuthenticationManager.Signout(DefaultAuthenticationTypes.ApplicationCookie);
-            //return RedirectToAction("Index", "Home");
-            Session.Clear();//remove session
+            Session.Clear();
             return RedirectToAction("Login");
 
         }
 
-        public ActionResult Register()
-        {
-            return View();
-        }
+        //public ActionResult Register(RegisterModel registerModel)
+        //{
+        //    return View(registerModel);
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
 
         public async Task<ActionResult> Register (RegisterModel registerModel)
         {
@@ -133,7 +122,7 @@ namespace EstChe.Controllers
                 }
 
             }
-            return View();
+            return View(registerModel);
         }
 
 

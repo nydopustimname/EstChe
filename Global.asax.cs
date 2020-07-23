@@ -1,9 +1,9 @@
 using BLL.Infrastructure;
-using EstChe.Models;
 using EstChe.Util;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Mvc;
+using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -23,7 +23,7 @@ namespace EstChe
             NinjectModule serviceModule = new ServiceModule("ApContext");
             var kernel = new StandardKernel(orderModule, serviceModule);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
-            //  Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ItemContext>());
+             // Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ApContext>());
         }
     }
 }

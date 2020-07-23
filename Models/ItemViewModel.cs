@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EstChe.Models
 {
-  public  class ItemViewModel
+    public  class ItemViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

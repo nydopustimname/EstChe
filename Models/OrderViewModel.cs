@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EstChe.ViewModels
+namespace EstChe.Models
 {
     public class OrderViewModel
     {
