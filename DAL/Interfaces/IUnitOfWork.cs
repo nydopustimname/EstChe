@@ -11,7 +11,8 @@ namespace DAL.Interfaces
         IOrderRepository Orders { get; }
         IClientManager ClientManager { get; }
         AppRoleManager RoleManager { get; }
-       // AppUserManager UserManager { get; }
+
+        AppUserManager UserManager { get; }
        // IUserManager UserManager { get; }
         Task SaveAsync();
 
