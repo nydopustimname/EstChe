@@ -64,13 +64,6 @@ namespace EstChe.Controllers
             {
                 return Content(ex.Message);
             }
-            //if (id == null)
-            //    return HttpNotFound();
-            //Item item = db.Items.Find(id);
-            //if (item == null)
-            //    return HttpNotFound();
-            //OrderViewModel orderModel = new OrderViewModel { ItemId = item.Id };
-            //return View(orderModel);
         }
         [HttpPost]
        [CustAuthorize(true)]
@@ -89,30 +82,6 @@ namespace EstChe.Controllers
                 ModelState.AddModelError(ex.Property, ex.Message);
             }
             return View(orderModel);
-            //if (ModelState.IsValid)
-            //{
-            //    Item item = db.Items.Find(orderModel.ItemId);
-            //    if (item == null)
-            //        return HttpNotFound();
-            //    decimal sum = item.Price;
-
-            //    // если сегодня первое число месяца, тогда скидка в 10% 
-            //    if (DateTime.Now.Day == 1)
-            //        sum = sum - sum * 0.1m;
-
-            //    Order order = new Order
-            //    {
-            //        ItemId = item.Id,
-            //        PhoneNumber = orderModel.PhoneNumber,
-            //        Address = orderModel.Address,
-            //        Date = DateTime.Now,
-            //        Sum = sum
-            //    };
-            //    db.Orders.Add(order);
-            //    db.SaveChanges();
-            //    return Content("<h2>Ваш заказ успешно оформлен</h2>");
-            //}
-            //return View(orderModel);
         }
 
         protected override void Dispose(bool disposing)
@@ -121,11 +90,5 @@ namespace EstChe.Controllers
             base.Dispose(disposing);
         }
     }
-
-    //[CustAuthorize(Users ="sa")]
-    //public ActionResult Edit()
-    //{
-    //    return View();
-    //}
 
 }
