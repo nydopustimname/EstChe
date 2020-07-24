@@ -92,15 +92,15 @@ namespace EstChe.Controllers
 
         }
 
-        //public ActionResult Register(RegisterModel registerModel)
-        //{
-        //    return View(registerModel);
-        //}
+        public ActionResult Register(RegisterModel registerModel)
+        {
+            return View(registerModel);
+        }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
 
-        public async Task<ActionResult> Register (RegisterModel registerModel)
+        public async Task<ActionResult> Register (RegisterModel registerModel, string message)
         {
             await SetinitialDataAsync();
             if (ModelState.IsValid)
@@ -119,6 +119,7 @@ namespace EstChe.Controllers
                 else
                 {
                     ModelState.AddModelError(operationInfo.Property, operationInfo.Message);
+                    return View(operationInfo.Message);
                 }
 
             }
@@ -131,8 +132,8 @@ namespace EstChe.Controllers
             await UserService.SetInitialData(new UserDTO
             {
                 Email = "t.a.dubkovskaya@gmail.com",
-                Password = "ad46D",
-                Name = "Friendly Fire",
+                Password = "123465789",
+                Name = "FriendlyFire",
                 Address = "ул. Спортивная, д.30, кв.75",
                 Role = "admin",
             }, new List<string> { "user", "admin" });

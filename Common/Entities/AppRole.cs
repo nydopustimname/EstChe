@@ -8,11 +8,11 @@ namespace Common.Entities
   
     public class AppRole : IdentityRole
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int RoleId { get; set; }
-        public string RoleName { get; set; }
-        public string Description { get; set; }
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public int RoleId { get; set; }
+        //public string RoleName { get; set; }
+        //public string Description { get; set; }
 
     }
 }

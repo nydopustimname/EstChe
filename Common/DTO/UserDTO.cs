@@ -1,9 +1,15 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Common.DTO
 {
+    [Table("AspNetUsers")]
     public class UserDTO
     {
+        
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.None)]
+
         public string Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

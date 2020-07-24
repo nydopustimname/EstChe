@@ -9,6 +9,7 @@ using Common.DTO;
 using AutoMapper;
 using BLL.Infrastructure;
 using EstChe.Models;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace EstChe.Controllers
 {
@@ -17,11 +18,20 @@ namespace EstChe.Controllers
         //ExceptContext db2 = new ExceptContext();
         //ItemContext db = new ItemContext();
 
+        private IUserService UserService
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().GetUserManager<IUserService>();
+            }
+        }
+
         IOrderService orderService;
         public HomeController(IOrderService service)
         {
             orderService = service;
         }
+
 
 
         public ActionResult Error ()

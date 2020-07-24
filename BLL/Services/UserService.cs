@@ -10,14 +10,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using DAL.Repositories;
+using DAL.Interfaces;
 
 namespace BLL.Services
 {
     public class UserService : IUserService
     {
-        UnitOfWork DB { get; set; }
+        IUnitOfWork DB { get; set; }
 
-        public UserService (UnitOfWork unitOfWork)
+        public UserService (IUnitOfWork unitOfWork)
         {
             DB = unitOfWork;
         }
@@ -31,8 +32,11 @@ namespace BLL.Services
 
                 user = new User
                 {
-                    Email = userDto.Email
+                    Email = userDto.Email,
+                    UserName=userDto.Name
                 };
+
+
                 var res = await DB.UserManager.CreateAsync(user, userDto.Password);
                 if (res.Errors.Count()>0)
                 {
@@ -41,12 +45,14 @@ namespace BLL.Services
                 }
                 await DB.UserManager.AddToRoleAsync(user.Id, userDto.Role);
 
+
                 UserProfile userProfile = new UserProfile
                 {
                     Id = user.Id,
                     Address = userDto.Address,
                     Name = userDto.Name
                 };
+                DB.ClientManager.Create(userProfile);
                 await DB.SaveAsync();
                 return new OperationInfo(true, "Successfull registrated", "");
 
@@ -66,7 +72,7 @@ namespace BLL.Services
             {
                 claimsIdentity = await DB.UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             }
-                return claimsIdentity;
+            return claimsIdentity;
 
         }
 
@@ -81,6 +87,7 @@ namespace BLL.Services
                     {
                         Name = roleName
                     };
+
                     await DB.RoleManager.CreateAsync(role);
                 }
             }

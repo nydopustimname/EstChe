@@ -7,7 +7,7 @@
 
 <div class="row justify-content-md-center">
     <div class="col-md-5">
-        @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
         {
             //@Html.ValidationSummary()
             @Html.AntiForgeryToken()
@@ -22,7 +22,7 @@
                         @Html.TextBoxFor(m => m.Name, "", new { @class = "form-control", @placeholder = "Name" })
                         @Html.ValidationMessageFor(m => m.Name, "", new { @class = "badge badge-danger" })
                     </div>
-                    
+
                     <div class="form-group">
                         @Html.LabelFor(m => m.Email)
                         @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
@@ -31,6 +31,11 @@
                         {
                             <span class="badge badge-danger">@ViewBag.error</span>
                         }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Address)
+                        @Html.TextBoxFor(m => m.Address, "", new { @class = "form-control", @placeholder = "Address" })
+                        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "badge badge-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(m => m.Password)
