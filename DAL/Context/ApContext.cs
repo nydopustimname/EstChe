@@ -18,35 +18,37 @@ namespace DAL.Context
         public DbSet<Item> Items { get; set; }
         public DbSet<AppRole> Roles { get; set; }
 
-       
+       public static ApContext Create()
+        {
+            return new ApContext();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().ToTable("UserProfilies");
-            modelBuilder.Entity<AppRole>().ToTable("AspNetRoles");
+            modelBuilder.Entity<UserProfile>();
             modelBuilder.Conventions.Remove<IncludeMetadataConvention>();
         }
     }
 
-    public class UserDbInitializer : DropCreateDatabaseAlways<ApContext>
-    {
-        protected override void Seed(ApContext db)
-        {
-            Database.SetInitializer(new UserDbInitializer());
-            AppRole admin = new AppRole { Name = "admin" };
-            AppRole user = new AppRole { Name = "user" };
-            db.Roles.Add(admin);
-            db.Roles.Add(user);
-            db.Users.Add(new User
-            {
-                Email = "somemail@gmail.com",
-                Password = "123456",
-                Role = "admin"
-            });
-            base.Seed(db);
-        }
-    }
+    //public class UserDbInitializer : DropCreateDatabaseAlways<ApContext>
+    //{
+    //    protected override void Seed(ApContext db)
+    //    {
+    //        Database.SetInitializer(new UserDbInitializer());
+    //        AppRole admin = new AppRole { Name = "admin" };
+    //        AppRole user = new AppRole { Name = "user" };
+    //        db.Roles.Add(admin);
+    //        db.Roles.Add(user);
+    //        db.Users.Add(new User
+    //        {
+    //            Email = "somemail@gmail.com",
+    //            Password = "123456",
+    //            Role = "admin"
+    //        });
+    //        base.Seed(db);
+    //    }
+    //}
 
 
     //public class IdentityDbInit : DropCreateDatabaseAlways<ApContext>
