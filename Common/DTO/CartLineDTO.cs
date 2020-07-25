@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Common.DTO
 {
-    public  class CartLineDTO
-    {
-        public Item Item { get; set; }
-        public int Quantity { get; set; }
-    }
+    //public  class CartLineDTO
+    //{
+    //    public Item Item { get; set; }
+    //    public int Quantity { get; set; }
+    //}
 }
