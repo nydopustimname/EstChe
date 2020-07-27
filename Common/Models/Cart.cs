@@ -1,7 +1,8 @@
 ﻿
 using Common.Entities;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+using System.Linq;
 
 namespace Common.Models
 {
@@ -9,9 +10,9 @@ namespace Common.Models
     public class Cart
     {
         [Key]
-        public string ItemId { get; set; }
+        public int ItemId { get; set; }
 
-        public string CartId { get; set; }
+        public int CartId { get; set; }
 
         public int Quantity { get; set; }
 
@@ -20,10 +21,12 @@ namespace Common.Models
         public int ProductId { get; set; }
 
         public virtual Item Item { get; set; }
-
+        public string SessionId { get; set; }
+        public List<CartItem> CartItems { get; set; }
     }
     //public class Cart
     //{
+    //    [Key]
     //    private List<CartLine> lineCollection = new List<CartLine>();
 
     //    public void AddItem(Item item, int quantity)
@@ -49,7 +52,7 @@ namespace Common.Models
     //        lineCollection.RemoveAll(i => i.Item.Id == item.Id);
     //    }
 
-    //    public decimal ComputeSum ()
+    //    public decimal ComputeSum()
     //    {
     //        return lineCollection.Sum(i => i.Item.Price * i.Quantity);
     //    }
@@ -60,13 +63,9 @@ namespace Common.Models
     //    }
 
     //    public IEnumerable<CartLine> Lines => lineCollection;
-    //}
-
-    //public class CartLine
-    //{
-    //    public Item Item { get; set; }
-    //    public int Quantity { get; set; }
-    //}
-
-
 }
+
+   
+
+
+

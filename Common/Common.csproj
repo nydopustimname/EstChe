@@ -43,6 +43,9 @@
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -59,12 +62,17 @@
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Entities\AppRole.cs" />
+    <Compile Include="Models\ItemViewModel.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserProfile.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\CartItemViewModel.cs" />
+    <Compile Include="Models\CartLine.cs" />
+    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,6 +10,8 @@ using AutoMapper;
 using BLL.Infrastructure;
 using EstChe.Models;
 using Microsoft.AspNet.Identity.Owin;
+using BLL.Services;
+using Common.Models;
 
 namespace EstChe.Controllers
 {
@@ -27,10 +29,13 @@ namespace EstChe.Controllers
         }
 
         IOrderService orderService;
-        public HomeController(IOrderService service)
+        CartService cartService;
+        public HomeController(IOrderService service, CartService cService)
         {
             orderService = service;
+            cartService = cService;
         }
+
 
 
 
@@ -43,8 +48,8 @@ namespace EstChe.Controllers
         public ActionResult Index ()
         {
             IEnumerable<ItemDTO> itemDTOs = orderService.GetItems();
-            if (itemDTOs.Count()==0)
-                throw new Exception ();
+
+           
             var mapper = new MapperConfiguration(cf => cf.CreateMap<ItemDTO, ItemViewModel>()).CreateMapper();
             var items = mapper.Map<IEnumerable<ItemDTO>, List<ItemViewModel>>(itemDTOs);
             return View(items);

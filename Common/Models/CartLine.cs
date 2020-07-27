@@ -1,14 +1,15 @@
 ﻿using Common.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace Common.DTO
+
+namespace Common.Models
 {
-    public class CartLineDTO
+    public class CartLine
     {
+        [Key]
+        public int CartId { get; set; }
         public Item Item { get; set; }
         public int Quantity { get; set; }
     }
