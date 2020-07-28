@@ -1,6 +1,6 @@
 ﻿using Common.Entities;
 
-using DAL.Interfaces;
+using DALL.Interfaces;
 using System.Web.Mvc;
 
 namespace BLL.Interfaces

@@ -1,5 +1,5 @@
 ﻿using BLL.Interfaces;
-using DAL.Repositories;
+using DALL.Repositories;
 
 namespace BLL.Services
 {

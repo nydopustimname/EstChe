@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6A62892-D9F0-4D1B-BD3B-E6B18C8089C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLl</RootNamespace>
+    <AssemblyName>DLl</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.3.1.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.6\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.6\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\ApContext.cs" />
+    <Compile Include="Context\ItemContext.cs" />
+    <Compile Include="Entities\AppRole.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserProfile.cs" />
+    <Compile Include="Identity\AppRoleManager.cs" />
+    <Compile Include="Identity\AppUserManager.cs" />
+    <Compile Include="Interfaces\IAppRoleManager.cs" />
+    <Compile Include="Interfaces\IClientManager.cs" />
+    <Compile Include="Interfaces\IItemRepository.cs" />
+    <Compile Include="Interfaces\IOrderRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUnitOfWorkIdentity.cs" />
+    <Compile Include="Interfaces\IUserManager.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AppRoleManager.cs" />
+    <Compile Include="Repositories\AppUserManager.cs" />
+    <Compile Include="Repositories\CartRepository.cs" />
+    <Compile Include="Repositories\ClientManager.cs" />
+    <Compile Include="Repositories\ItemRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Common.dll" />
+    <Content Include="bin\Debug\Common.pdb" />
+    <Content Include="bin\Debug\DAL.dll" />
+    <Content Include="bin\Debug\DAL.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Antiforgery.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Antiforgery.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Cookies.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Cookies.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Core.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authorization.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authorization.Policy.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authorization.Policy.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authorization.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cors.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cors.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Identity.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Identity.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Session.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Session.xml" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <Content Include="bin\Debug\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\Debug\Microsoft.CodeAnalysis.CSharp.pdb" />
+    <Content Include="bin\Debug\Microsoft.CodeAnalysis.CSharp.xml" />
+    <Content Include="bin\Debug\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\Debug\Microsoft.CodeAnalysis.pdb" />
+    <Content Include="bin\Debug\Microsoft.CodeAnalysis.Razor.dll" />
+    <Content Include="bin\Debug\Microsoft.CodeAnalysis.Razor.xml" />
+    <Content Include="bin\Debug\Microsoft.CodeAnalysis.xml" />
+    <Content Include="bin\Debug\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\Debug\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\Debug\Microsoft.DotNet.PlatformAbstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Binder.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Binder.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Identity.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Identity.Core.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Options.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Options.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Primitives.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Primitives.xml" />
+    <Content Include="bin\Debug\Microsoft.Net.Http.Headers.dll" />
+    <Content Include="bin\Debug\Microsoft.Net.Http.Headers.xml" />
+    <Content Include="bin\Debug\Microsoft.Owin.dll" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Debug\Microsoft.Owin.xml" />
+    <Content Include="bin\Debug\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Debug\Microsoft.Win32.Registry.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.Bson.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.Bson.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\Owin.dll" />
+    <Content Include="bin\Debug\ru\System.Web.Helpers.resources.dll" />
+    <Content Include="bin\Debug\ru\System.Web.Mvc.resources.dll" />
+    <Content Include="bin\Debug\ru\System.Web.Razor.resources.dll" />
+    <Content Include="bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="bin\Debug\ru\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="bin\Debug\ru\System.Web.WebPages.resources.dll" />
+    <Content Include="bin\Debug\ru\System.Xml.Linq.resources.dll" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Content Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.Collections.Immutable.dll" />
+    <Content Include="bin\Debug\System.Collections.Immutable.xml" />
+    <Content Include="bin\Debug\System.ComponentModel.Annotations.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Content Include="bin\Debug\System.Memory.xml" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.xml" />
+    <Content Include="bin\Debug\System.Reflection.Metadata.dll" />
+    <Content Include="bin\Debug\System.Reflection.Metadata.xml" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\Debug\System.Security.AccessControl.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Xml.dll" />
+    <Content Include="bin\Debug\System.Security.Permissions.dll" />
+    <Content Include="bin\Debug\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\Debug\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\Debug\System.Text.Encodings.Web.dll" />
+    <Content Include="bin\Debug\System.Text.Encodings.Web.xml" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\Debug\System.Web.Helpers.dll" />
+    <Content Include="bin\Debug\System.Web.Helpers.xml" />
+    <Content Include="bin\Debug\System.Web.Mvc.dll" />
+    <Content Include="bin\Debug\System.Web.Mvc.xml" />
+    <Content Include="bin\Debug\System.Web.Razor.dll" />
+    <Content Include="bin\Debug\System.Web.Razor.xml" />
+    <Content Include="bin\Debug\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\Debug\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\Debug\System.Web.WebPages.dll" />
+    <Content Include="bin\Debug\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\Debug\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\Debug\System.Web.WebPages.xml" />
+    <Content Include="bin\Debug\System.Xml.Linq.dll" />
+    <Content Include="obj\Debug\DAL.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\DAL.dll" />
+    <Content Include="obj\Debug\DAL.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="bin\Debug\Common.dll.config" />
+    <None Include="bin\Debug\DAL.dll.config" />
+    <None Include="DAL.csproj" />
+    <None Include="obj\Debug\DAL.csproj.CopyComplete" />
+    <None Include="obj\Debug\DAL.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\DAL.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\DLl.csprojAssemblyReference.cache" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{29ef457b-ae85-4507-bea2-de369b9df394}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

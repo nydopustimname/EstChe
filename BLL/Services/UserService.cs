@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using DAL.Repositories;
-using DAL.Interfaces;
+using DALL.Repositories;
+using DALL.Interfaces;
+
+
+//inject uow
+//поверить, не создавалися ли uow чз new
 
 namespace BLL.Services
 {

@@ -2,7 +2,7 @@
 using Common.DTO;
 using BLL.Infrastructure;
 using BLL.Interfaces;
-using DAL.Interfaces;
+using DALL.Interfaces;
 using Common.Entities;
 
 using System;

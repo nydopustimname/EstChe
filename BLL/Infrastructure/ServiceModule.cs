@@ -1,5 +1,5 @@
-﻿using DAL.Interfaces;
-using DAL.Repositories;
+﻿using DALL.Interfaces;
+using DALL.Repositories;
 using Ninject.Modules;
 
 namespace BLL.Infrastructure

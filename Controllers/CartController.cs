@@ -18,6 +18,7 @@ namespace EstChe.Controllers
 
         private readonly CartService _cartService = new CartService();
 
+        //заменить на UOW
         private IItemRepository repository;
         public CartController(IItemRepository cr)
         {
