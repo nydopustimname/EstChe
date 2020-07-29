@@ -14,6 +14,8 @@ namespace DALL.Interfaces
         AppRoleManager RoleManager { get; }
 
         AppUserManager UserManager { get; }
+
+        ICartRepository ShoppingCart { get; }
        // IUserManager UserManager { get; }
         Task SaveAsync();
 

@@ -16,7 +16,7 @@ namespace Common.Models
 
         public int Quantity { get; set; }
 
-        public System.DateTime DateCreated { get; set; }
+       // public System.DateTime DateCreated { get; set; }
 
         public int ProductId { get; set; }
 

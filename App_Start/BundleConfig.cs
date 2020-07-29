@@ -25,6 +25,10 @@ namespace EstChe
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/estChe").Include
+                ("~/Scripts/knockout.custom.js",
+            "~/Scripts/ViewModels/CartSummaryViewModel.js"));
         }
     }
 }

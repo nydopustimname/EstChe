@@ -100,6 +100,7 @@
     <Compile Include="Identity\AppRoleManager.cs" />
     <Compile Include="Identity\AppUserManager.cs" />
     <Compile Include="Interfaces\IAppRoleManager.cs" />
+    <Compile Include="Interfaces\ICartRepository.cs" />
     <Compile Include="Interfaces\IClientManager.cs" />
     <Compile Include="Interfaces\IItemRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />

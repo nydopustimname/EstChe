@@ -9,6 +9,7 @@ namespace EstChe.Util
         public override void Load()
         {
             Bind<IOrderService>().To<OrderService>();
+            Bind<ICartService>().To<CartService>();
         }
     }
 }

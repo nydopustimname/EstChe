@@ -1,13 +1,14 @@
 ﻿using Common.Entities;
 using Common.Models;
 using DALL.Context;
+using DALL.Interfaces;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace DALL.Repositories
 {
-    public class CartRepository: Repository<Cart>
+    public class CartRepository: Repository<Cart>, ICartRepository
 
     {
         private ApContext db { get; set; }
@@ -19,10 +20,10 @@ namespace DALL.Repositories
             Item item = db.Items.FirstOrDefault(i => i.Id == itemId);
             if (item!=null)
             {
-
+                throw new System.Exception("Item doesn't exist");
             }
+           // db.ShoppingCart.cart
         }
 
-       
     }
 }

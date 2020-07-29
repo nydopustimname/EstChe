@@ -378,6 +378,7 @@
     <Content Include="Views\Account\Logggin.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Cart\Summary.cshtml" />
+    <Content Include="Scripts\knockout.custom.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />

@@ -19,23 +19,26 @@
                 </button>
                 @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+            <div class="navbar-right" id="cart-details">
+                @Html.Action("Summary", "Cart")
+            </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            <li>@Html.ActionLink("Войти", "Login", "Account")</li>
-                            <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a>Привет, @User.Identity.Name</a>
-                            </li>
-                            <li>@Html.ActionLink("Выход", "LogOut", "Account")</li>
-                        }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Войти", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a>Привет, @User.Identity.Name</a>
+                        </li>
+                        <li>@Html.ActionLink("Выход", "LogOut", "Account")</li>
+                    }
 
-                    </ul>
+                </ul>
             </div>
         </div>
     </div>
@@ -49,6 +52,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/estChe")
     @RenderSection("scripts", required: false)
 </body>
 </html>

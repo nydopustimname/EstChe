@@ -15,6 +15,6 @@ namespace Common.Models
         public int Quantity { get; set; }
 
         public virtual Cart Cart { get; set; }
-        public virtual Item Book { get; set; }
+        public virtual Item Item { get; set; }
     }
 }

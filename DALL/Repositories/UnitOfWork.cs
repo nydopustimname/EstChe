@@ -24,6 +24,7 @@ namespace DALL.Repositories
             ClientManager = new ClientManager(_context);
             RoleManager = new AppRoleManager(new RoleStore<AppRole>(_context));
             UserManager = new AppUserManager(new UserStore<User>(_context));
+            ShoppingCart = new CartRepository(_context);
         }
 
         public UnitOfWork (string connectionString)
@@ -34,6 +35,7 @@ namespace DALL.Repositories
             ClientManager = new ClientManager(_context);
             RoleManager = new AppRoleManager(new RoleStore<AppRole>(_context));
             UserManager = new AppUserManager(new UserStore<User>(_context));
+            ShoppingCart =new CartRepository(_context);
         }
 
         public IItemRepository Itemss { get; private set; }
@@ -44,6 +46,7 @@ namespace DALL.Repositories
 
         public AppRoleManager RoleManager { get; private set; }
         public AppUserManager UserManager { get; private set; }
+        public ICartRepository ShoppingCart { get; private set; }
 
         // public Microsoft.AspNet.Identity.UserManager<User> UserManager { get; private set; }
 

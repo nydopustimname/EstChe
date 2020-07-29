@@ -1,28 +1,26 @@
 ﻿using BLL.Interfaces;
 using Common.Models;
-using EstChe.Models;
+
 using log4net.Core;
 using AutoMapper;
-
+using Microsoft.AspNet.Identity.Owin;
 using System.Web.Mvc;
 using System.Collections.Generic;
 using BLL.Services;
 using NPOI.SS.Format;
+using System.Web;
 
 namespace EstChe.Controllers
 {
     public class CartController : Controller
     {
 
-        
+        private ICartService CartService;
 
-        private readonly CartService _cartService = new CartService();
 
-        //заменить на UOW
-        private IItemRepository repository;
-        public CartController(IItemRepository cr)
+        public CartController(ICartService cr)
         {
-            repository = cr;
+            CartService = cr;
         }
 
         //public CartsController()
@@ -40,30 +38,24 @@ namespace EstChe.Controllers
         //    AutoMapper.Mapper.CreateMap<Category, CategoryViewModel>();
 
 
-        //    //MAP
-        //}
-
-        // GET: Cart
-        //public ActionResult Index(string returnUrl)
-        //{
-        //    return View(
-        //        new CartViewModel
-        //        {
-        //            Cart = GetCart(),
-        //            ReturnUrl = returnUrl
-        //        }
-        //        );
-
-        //    //var config = new MapperConfiguration(cf => cf.CreateMap<Cart, CartViewModel>());
-        //    //var mapper = new Mapper(config);
-
-
-        //}
+        public ActionResult Index()
+        {
+            var cart = CartService.GetBySessionId(HttpContext.Session.SessionID);
+            var mapper = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Cart, CartViewModel>();
+            });
+            IMapper mapper1 = mapper.CreateMapper();
+            var source = new Cart();
+            return View(
+             mapper1.Map<Cart, CartViewModel>(cart)
+            );
+        }
 
         [ChildActionOnly]
         public PartialViewResult Summary()
         {
-            var cart = _cartService.GetBySessionId(HttpContext.Session.SessionID);
+            var cart = CartService.GetBySessionId(HttpContext.Session.SessionID);
 
             var mapper = new MapperConfiguration(cfg =>
               {
@@ -81,7 +73,7 @@ namespace EstChe.Controllers
         {
             if (disposing)
             {
-                _cartService.Dispose();
+                CartService.Dispose();
             }
             base.Dispose(disposing);
         }

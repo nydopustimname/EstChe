@@ -29,15 +29,13 @@ namespace EstChe.Controllers
         }
 
         IOrderService orderService;
-        CartService cartService;
+        ICartService cartService;
+
         public HomeController(IOrderService service, CartService cService)
         {
             orderService = service;
             cartService = cService;
         }
-
-
-
 
         public ActionResult Error ()
         {
@@ -56,38 +54,42 @@ namespace EstChe.Controllers
             //return View(db.Items);
         }
 
-        [CustAuthorize(true)]
-        public ActionResult MakeOrder(int? id)
-        {
-            try
-            {
-                ItemDTO item = orderService.GetItem(id);
-                var order = new OrderViewModel { ItemId = item.Id };
-                return View(order);
-            }
-            catch (ValidationException ex) 
-            {
-                return Content(ex.Message);
-            }
-        }
-        [HttpPost]
-       [CustAuthorize(true)]
-        public ActionResult MakeOrder(OrderViewModel orderModel)
-        {
-           
-            try
-            {
-                var orderDTO = new OrderDTO { Id = orderModel.ItemId, Address = orderModel.Address, PhoneNumber = orderModel.PhoneNumber };
-                orderService.MakeOrder(orderDTO);
-                return Content("Ваш заказ успешно оформлен");
+        //[CustAuthorize(true)]
+        //public ActionResult MakeOrder(int? id)
+        //{
+        //    try
+        //    {
+        //        ItemDTO item = orderService.GetItem(id);
+        //        var order = new OrderViewModel { ItemId = item.Id };
+        //        return View(order);
+        //    }
+        //    catch (ValidationException ex) 
+        //    {
+        //        return Content(ex.Message);
+        //    }
+        //}
+       // [HttpPost]
+       //[CustAuthorize(true)]
+       // public ActionResult MakeOrder(OrderViewModel orderModel)
+       // {
+       //     try
+       //     {
+       //         var orderDTO = new OrderDTO { Id = orderModel.ItemId, Address = orderModel.Address, PhoneNumber = orderModel.PhoneNumber };
+       //         orderService.MakeOrder(orderDTO);
+       //         return Content("Ваш заказ успешно оформлен");
 
-            }
-            catch (ValidationException ex)
-            {
-                ModelState.AddModelError(ex.Property, ex.Message);
-            }
-            return View(orderModel);
-        }
+       //     }
+       //     catch (ValidationException ex)
+       //     {
+       //         ModelState.AddModelError(ex.Property, ex.Message);
+       //     }
+       //     return View(orderModel);
+       // }
+
+        //public ActionResult Details (int id)
+        //{
+        //    var item=
+        //}
 
         protected override void Dispose(bool disposing)
         {
